@@ -1,3 +1,107 @@
 @import "tailwindcss";
 
 @plugin 'tailwind-scrollbar';
+
+
+/* Header Component */
+.cc-menu-btn {
+    @apply
+    size-10
+    rounded-xl bg-zinc-50/10 ring-inset ring-1 ring-zinc-50/[0.02] backdrop-blur-2xl
+    transition-all
+    max-md:grid max-md:place-items-center
+    active:scale-95 hover:bg-zinc-50/15
+}
+
+/* Navbar Component */
+.cc-navbar {
+    @apply
+    flex absolute top-full right-0
+    mt-2 p-2 min-w-40
+    text-center
+    bg-zinc-50/10 rounded-2xl ring-inset ring-1 ring-zinc-50/5
+    blur-sm opacity-0 transition-all invisible scale-90
+    md:static md:flex md:items-center md:mt-0 md:opacity-100 md:visible md:blur-none md:scale-100
+    backdrop-blur-2xl isolate
+}
+
+.cc-navbar.cc-active {
+    @apply opacity-100 scale-100 blur-none visible
+}
+
+.cc-nav-link {
+    @apply
+    grid items-center
+    h-9 px-4 text-sm font-medium tracking-wide text-zinc-50/50 leading-tight
+    transition-colors
+    hover:text-zinc-50
+}
+
+.cc-nav-link.cc-active {
+    @apply text-zinc-900 duration-500
+}
+
+.cc-navbar .cc-active-box {
+    @apply absolute bg-zinc-50 rounded-lg -z-10 transition-all
+}
+
+/* Shared Utilities */
+.cc-section {
+    @apply pt-28 lg:pt-36
+}
+
+.container {
+    @apply px-4 mx-auto lg:px-8 xl:max-w-6xl
+}
+
+.cc-image-box {
+    @apply bg-zinc-700 overflow-hidden
+}
+
+.cc-image-cover {
+    @apply size-full object-cover
+}
+
+.headline-1 {
+    @apply text-5xl leading-tight font-semibold lg:text-[55px] lg:leading-[1.15]
+}
+
+.cc-btn-primary {
+    @apply
+    flex items-center gap-2
+    text-sm font-medium
+    rounded-xl text-zinc-900 ring-1 ring-zinc-50/5 ring-inset
+    transition-[background-color] cursor-pointer
+}
+
+.cc-btn-outline {
+    @apply
+    flex items-center gap-2
+    px-4
+    text-sm font-medium
+    rounded-xl bg-zinc-800
+    transition-[background-color] cursor-pointer
+    hover:bg-zinc-700 active:bg-zinc-800
+}
+
+.cc-label {
+    @apply block text-zinc-200 text-sm font-normal mb-2
+}
+
+.cc-text-field {
+    @apply
+    block
+    w-full px-3 py-3
+    text-sm
+    outline-none   bg-zinc-800 rounded-xl ring-1 ring-inset ring-transparent
+    transition-shadow
+    hover:ring-zinc-50/5 focus:ring-amber-400 focus:ring-2
+}
+
+.cc-text-field::placeholder {
+    @apply block text-zinc-400
+}
+
+.cc-reveal-up {
+    @apply translate-y-20 opacity-0
+}
