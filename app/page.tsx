@@ -1,7 +1,25 @@
+import {
+    Header,
+    Hero,
+    About,
+    Skills,
+    Work,
+    Reviews,
+    Contact,
+    Footer,
+} from '@/components'
+
 export default function Home() {
     return (
         <div>
-            test
+            <Header />
+            <Hero />
+            <About />
+            <Skills />
+            <Work />
+            <Reviews />
+            <Contact />
+            <Footer />
         </div>
     )
 }
