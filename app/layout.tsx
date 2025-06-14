@@ -1,5 +1,7 @@
+import { FC, ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { GsapLenisProvider } from '@/components/GsapLenisProvider'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -15,19 +17,21 @@ const inter = Inter({
     display: 'swap',
 })
 
-export default function RootLayout({
-    children,
-}: Readonly<{
-    children: React.ReactNode
-}>) {
+interface RootLayoutProps {
+    children: ReactNode
+}
+
+const RootLayout: FC<RootLayoutProps> = ({ children }) => {
     return (
         <html
             lang="en"
             className={`${inter.className} scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-zinc-500`}
         >
             <body className="h-[200vh] scroll-smooth bg-zinc-900 text-zinc-50">
-                {children}
+                <GsapLenisProvider>{children}</GsapLenisProvider>
             </body>
         </html>
     )
 }
+
+export default RootLayout
