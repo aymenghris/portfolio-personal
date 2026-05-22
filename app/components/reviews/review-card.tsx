@@ -1,6 +1,5 @@
-import { FC, ReactElement } from 'react'
-import { TbStarFilled } from 'react-icons/tb'
-import Image from 'next/image'
+import type { ReactElement } from "react"
+import { TbStarFilled } from "react-icons/tb"
 
 interface ReviewCardProps {
     content: string
@@ -13,12 +12,12 @@ interface IconItem {
     icon: ReactElement
 }
 
-const ReviewCard: FC<ReviewCardProps> = ({
+export const ReviewCard = ({
     content,
     name,
     imgSrc,
     company,
-}) => {
+}: ReviewCardProps) => {
     const ratings: IconItem[] = Array(5).fill({
         icon: <TbStarFilled className="text-yellow-300" size="18px" />,
     })
@@ -50,5 +49,3 @@ const ReviewCard: FC<ReviewCardProps> = ({
         </div>
     )
 }
-
-export default ReviewCard

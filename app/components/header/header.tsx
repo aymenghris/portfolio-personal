@@ -1,15 +1,15 @@
-'use client'
+"use client"
 
-import clsx from 'clsx'
-import Link from 'next/link'
-import Image from 'next/image'
-import { useState } from 'react'
-import { TbX, TbMenu2 } from 'react-icons/tb'
-import { Navbar } from '@/components'
-import { Button } from '@/components/Button'
+import Image from "next/image"
+import Link from "next/link"
+import { useState } from "react"
+import { TbMenu2, TbX } from "react-icons/tb"
+import { Button } from "@/components/Button"
+import { Navbar } from "./navbar"
 
-const Header = () => {
+export const Header = () => {
     const [navOpen, setNavOpen] = useState(false)
+
     return (
         <header className="fixed top-0 left-0 z-40 flex h-20 w-full items-center bg-gradient-to-b from-zinc-900 to-zinc-900/0">
             <div className="mx-auto flex w-full max-w-screen-2xl items-center justify-between px-4 md:grid md:grid-cols-[1fr_3fr_1fr] md:px-6">
@@ -25,6 +25,7 @@ const Header = () => {
                 </h1>
                 <div className="relative md:justify-self-center">
                     <button
+                        type="button"
                         className="cc-menu-btn cursor-pointer md:hidden"
                         onClick={() => setNavOpen(!navOpen)}
                     >
@@ -43,5 +44,3 @@ const Header = () => {
         </header>
     )
 }
-
-export default Header

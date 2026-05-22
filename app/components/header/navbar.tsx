@@ -1,12 +1,12 @@
-'use client'
+"use client"
 
-import { FC, useEffect, useRef, MouseEvent } from 'react'
+import { type MouseEvent, useEffect, useRef } from "react"
 
-type NavbarProps = {
+interface NavbarProps {
     navOpen: boolean
 }
 
-const Navbar: FC<NavbarProps> = ({ navOpen }) => {
+export const Navbar = ({ navOpen }: NavbarProps) => {
     const lastActiveLink = useRef<HTMLAnchorElement>(null)
     const activeBox = useRef<HTMLDivElement>(null)
 
@@ -21,16 +21,16 @@ const Navbar: FC<NavbarProps> = ({ navOpen }) => {
 
     useEffect(() => {
         initActiveBox()
-        window.addEventListener('resize', initActiveBox)
+        window.addEventListener("resize", initActiveBox)
 
         return () => {
-            window.removeEventListener('resize', initActiveBox)
+            window.removeEventListener("resize", initActiveBox)
         }
     }, [])
 
     const activeCurrentLink = (event: MouseEvent<HTMLAnchorElement>) => {
-        lastActiveLink.current?.classList.remove('cc-active')
-        event.currentTarget.classList.add('cc-active')
+        lastActiveLink.current?.classList.remove("cc-active")
+        event.currentTarget.classList.add("cc-active")
         lastActiveLink.current = event.currentTarget
 
         if (activeBox.current) {
@@ -43,35 +43,35 @@ const Navbar: FC<NavbarProps> = ({ navOpen }) => {
 
     const navItems = [
         {
-            label: 'Home',
-            link: '#home',
-            className: 'cc-nav-link cc-active',
+            label: "Home",
+            link: "#home",
+            className: "cc-nav-link cc-active",
             ref: lastActiveLink,
         },
         {
-            label: 'About',
-            link: '#about',
-            className: 'cc-nav-link',
+            label: "About",
+            link: "#about",
+            className: "cc-nav-link",
         },
         {
-            label: 'Work',
-            link: '#work',
-            className: 'cc-nav-link',
+            label: "Work",
+            link: "#work",
+            className: "cc-nav-link",
         },
         {
-            label: 'Reviews',
-            link: '#reviews',
-            className: 'cc-nav-link',
+            label: "Reviews",
+            link: "#reviews",
+            className: "cc-nav-link",
         },
         {
-            label: 'Contact',
-            link: '#contact',
-            className: 'cc-nav-link md:hidden',
+            label: "Contact",
+            link: "#contact",
+            className: "cc-nav-link md:hidden",
         },
     ]
 
     return (
-        <nav className={`cc-navbar ${navOpen ? 'cc-active' : ''}`}>
+        <nav className={`cc-navbar ${navOpen ? "cc-active" : ""}`}>
             {navItems.map(({ label, link, className, ref }, index) => (
                 <a
                     href={link}
@@ -87,5 +87,3 @@ const Navbar: FC<NavbarProps> = ({ navOpen }) => {
         </nav>
     )
 }
-
-export default Navbar

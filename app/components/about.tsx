@@ -1,18 +1,17 @@
-import React from 'react'
-import Image from 'next/image'
+import Image from "next/image"
 
 const aboutItems = [
     {
-        label: 'Project done',
-        number: 45,
+        label: "Project done",
+        number: 6,
     },
     {
-        label: 'Years of experience',
-        number: 10,
+        label: "Years of experience",
+        number: 1,
     },
 ]
 
-const About = () => {
+export const About = () => {
     return (
         <section id="about" className="cc-section">
             <div className="container">
@@ -27,17 +26,17 @@ const About = () => {
                         valuable member of a dev team.
                     </p>
                     <div className="flex flex-wrap items-center gap-4 md:gap-7">
-                        {aboutItems.map(({ label, number }, index) => (
-                            <div key={index}>
+                        {aboutItems.map(({ label, number }) => (
+                            <div key={crypto.randomUUID()}>
                                 <div className="flex items-center md:mb-2">
-                                    <span className="text-2xl font-semibold md:text-4xl">
+                                    <span className="font-semibold text-2xl md:text-4xl">
                                         {number}
                                     </span>
                                     <span className="font-semibold text-amber-400 md:text-3xl">
                                         +
                                     </span>
                                 </div>
-                                <p className="text-sm font-semibold text-zinc-400 md:text-3xl">
+                                <p className="font-semibold text-sm text-zinc-400 md:text-3xl">
                                     {label}
                                 </p>
                             </div>
@@ -55,5 +54,3 @@ const About = () => {
         </section>
     )
 }
-
-export default About

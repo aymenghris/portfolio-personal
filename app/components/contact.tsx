@@ -1,34 +1,34 @@
-import clsx from 'clsx'
-import Link from 'next/link'
-import { TbBrandGithub, TbBrandLinkedin, TbBrandTwitter } from 'react-icons/tb'
-import { Button } from '@/components/Button'
-import Headline from '@/components/ui/Headline'
-import React from 'react'
+import clsx from "clsx"
+import Link from "next/link"
+import { cloneElement } from "react"
+import { TbBrandGithub, TbBrandLinkedin, TbBrandTwitter } from "react-icons/tb"
+import { Button } from "@/components/Button"
+import { Headline } from "@/components/headline"
 
 const socialLinks = [
     {
-        href: '',
+        href: "",
         icon: <TbBrandGithub />,
-        alt: 'GitHub',
+        alt: "GitHub",
     },
     {
-        href: '',
+        href: "",
         icon: <TbBrandLinkedin />,
-        alt: 'LinkedIn',
+        alt: "LinkedIn",
     },
     {
-        href: '',
+        href: "",
         icon: <TbBrandTwitter />,
-        alt: 'Twitter X',
+        alt: "Twitter X",
     },
 ].map((item) => ({
     ...item,
-    icon: React.cloneElement(item.icon, {
+    icon: cloneElement(item.icon, {
         size: 25,
     }),
 }))
 
-const Contact = () => (
+export const Contact = () => (
     <section id="contact" className="pt-28 lg:pt-36">
         <div className="container lg:grid lg:grid-cols-2 lg:items-stretch">
             <div className="mb-12 lg:mb-0 lg:flex lg:flex-col">
@@ -40,18 +40,18 @@ const Contact = () => (
                     away—let’s start the conversation!
                 </p>
                 <div className="mt-auto flex items-center gap-2">
-                    {socialLinks.map(({ href, icon }, key) => (
+                    {socialLinks.map(({ href, icon }) => (
                         <Link
-                            key={key}
+                            key={crypto.randomUUID()}
                             href={href}
                             target="_blank"
                             className={clsx(
-                                'grid place-items-center',
-                                'size-12',
-                                'ring-2ring-zinc-50/5 rounded-lg ring-inset',
-                                'transition-colors',
-                                'hover:bg-zinc-50 hover:text-zinc-950 active:bg-zinc-50/80',
-                                'cc-reveal-up'
+                                "grid place-items-center",
+                                "size-12",
+                                "ring-2ring-zinc-50/5 rounded-lg ring-inset",
+                                "transition-colors",
+                                "hover:bg-zinc-50 hover:text-zinc-950 active:bg-zinc-50/80",
+                                "cc-reveal-up",
                             )}
                         >
                             {icon}
@@ -122,5 +122,3 @@ const Contact = () => (
         </div>
     </section>
 )
-
-export default Contact

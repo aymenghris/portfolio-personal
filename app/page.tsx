@@ -1,17 +1,17 @@
 import {
-    Header,
-    Hero,
     About,
-    Skills,
-    Work,
-    Reviews,
     Contact,
     Footer,
-} from '@/components'
+    Header,
+    Hero,
+    Reviews,
+    Skills,
+    Work,
+} from "@/app/components/"
 
-export default function Home() {
+const Home = () => {
     return (
-        <div>
+        <>
             <Header />
             <Hero />
             <About />
@@ -20,6 +20,8 @@ export default function Home() {
             <Reviews />
             <Contact />
             <Footer />
-        </div>
+        </>
     )
 }
+
+export default Home

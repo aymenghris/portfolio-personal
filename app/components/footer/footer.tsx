@@ -1,12 +1,12 @@
-import Headline from '@/components/ui/Headline'
-import { Button } from '@/components/Button'
-import { TbChevronRight } from 'react-icons/tb'
-import { sitemap, socials } from '@/data/footer'
-import Image from 'next/image'
-import FooterList from '@/components/FooterList'
-import Link from 'next/link'
+import Image from "next/image"
+import Link from "next/link"
+import { TbChevronRight } from "react-icons/tb"
+import { Button } from "@/components/Button"
+import { Headline } from "@/components/headline"
+import { sitemap, socials } from "@/data/footer"
+import { FooterList } from "./footer-list"
 
-const Footer = () => {
+export const Footer = () => {
     const currentYear = new Date().getFullYear()
 
     return (
@@ -49,5 +49,3 @@ const Footer = () => {
         </footer>
     )
 }
-
-export default Footer

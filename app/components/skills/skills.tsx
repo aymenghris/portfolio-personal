@@ -1,6 +1,4 @@
-import React from 'react'
-import clsx from 'clsx'
-import SkillCard from '@/components/SkillCard'
+import { cloneElement } from "react"
 import {
     TbBrandDocker,
     TbBrandGit,
@@ -15,70 +13,71 @@ import {
     TbBrandTypescript,
     TbDotsCircleHorizontal,
     TbSql,
-} from 'react-icons/tb'
-import Headline from '@/components/ui/Headline'
+} from "react-icons/tb"
+import { Headline } from "@/components/headline"
+import { SkillCard } from "./skill-card"
 
 const skillItem = [
     {
         icon: <TbBrandSass />,
-        title: 'SASS',
+        title: "SASS",
     },
     {
         icon: <TbBrandTailwind />,
-        title: 'Tailwind',
+        title: "Tailwind",
     },
     {
         icon: <TbBrandTypescript />,
-        title: 'Typescript',
+        title: "Typescript",
     },
     {
         icon: <TbBrandReact />,
-        title: 'React',
+        title: "React",
     },
     {
         icon: <TbBrandNextjs />,
-        title: 'Nextjs',
+        title: "Nextjs",
     },
     {
         icon: <TbBrandNodejs />,
-        title: 'Nodejs',
+        title: "Nodejs",
     },
     {
         icon: <TbBrandMongodb />,
-        title: 'MongoDB',
+        title: "MongoDB",
     },
     {
         icon: <TbSql />,
-        title: 'PostgreSQL',
+        title: "PostgreSQL",
     },
     {
         icon: <TbBrandGraphql />,
-        title: 'GraphQL',
+        title: "GraphQL",
     },
     {
         icon: <TbBrandPython />,
-        title: 'Python',
+        title: "Python",
     },
     {
         icon: <TbBrandGit />,
-        title: 'Git',
+        title: "Git",
     },
     {
         icon: <TbBrandDocker />,
-        title: 'Docker',
+        title: "Docker",
     },
     {
         icon: <TbDotsCircleHorizontal />,
-        title: 'And More...',
+        title: "And More...",
     },
 ].map((item) => ({
     ...item,
-    icon: React.cloneElement(item.icon, {
+    icon: cloneElement(item.icon, {
         size: 45,
     }),
 }))
 
-const Skills = () => {
+export const Skills = () => {
     return (
         <section className="cc-section">
             <div className="container">
@@ -102,7 +101,7 @@ const Skills = () => {
                 <div className="grid grid-cols-[repeat(auto-fill,_minmax(85px,_1fr))] gap-10">
                     {skillItem.map(({ icon, title }, index) => (
                         <SkillCard
-                            key={index}
+                            key={crypto.randomUUID()}
                             icon={icon}
                             title={title}
                             className="cc-reveal-up"
@@ -113,5 +112,3 @@ const Skills = () => {
         </section>
     )
 }
-
-export default Skills

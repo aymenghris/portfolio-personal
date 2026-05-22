@@ -1,8 +1,6 @@
-import clsx from 'clsx'
-import Image from 'next/image'
-import Link from 'next/link'
-import { FC } from 'react'
-import { TbArrowUpRight } from 'react-icons/tb'
+import clsx from "clsx"
+import Link from "next/link"
+import { TbArrowUpRight } from "react-icons/tb"
 
 interface ProjectCardProps {
     imgSrc: string
@@ -12,22 +10,22 @@ interface ProjectCardProps {
     className?: string
 }
 
-const ProjectCard: FC<ProjectCardProps> = ({
+export const ProjectCard = ({
     imgSrc,
     title,
     tags,
     projectLink,
     className,
-}) => {
+}: ProjectCardProps) => {
     return (
         <div
             className={clsx(
-                'relative',
-                'p-4',
-                'rounded-2xl bg-zinc-800 ring-1 ring-zinc-50/5 ring-inset',
-                'transition-colors',
-                'hover:bg-zinc-700/50 active:bg-zinc-700/60',
-                className
+                "relative",
+                "p-4",
+                "rounded-2xl bg-zinc-800 ring-1 ring-zinc-50/5 ring-inset",
+                "transition-colors",
+                "hover:bg-zinc-700/50 active:bg-zinc-700/60",
+                className,
             )}
         >
             <figure className="mb-4 aspect-square overflow-hidden rounded-lg bg-zinc-700">
@@ -46,9 +44,9 @@ const ProjectCard: FC<ProjectCardProps> = ({
                 </div>
             </div>
             <div className="flex flex-wrap items-center gap-2">
-                {tags.map((label, index) => (
+                {tags.map((label) => (
                     <span
-                        key={index}
+                        key={crypto.randomUUID()}
                         className="grid h-8 items-center rounded-lg bg-zinc-50/5 px-4 text-sm text-zinc-400"
                     >
                         {label}
@@ -63,5 +61,3 @@ const ProjectCard: FC<ProjectCardProps> = ({
         </div>
     )
 }
-
-export default ProjectCard
