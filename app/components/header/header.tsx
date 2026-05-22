@@ -4,17 +4,29 @@ import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 import { TbMenu2, TbX } from "react-icons/tb"
-import { Button } from "@/components/Button"
+import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 import { Navbar } from "./navbar"
 
 export const Header = () => {
-    const [navOpen, setNavOpen] = useState(false)
-
+    const [isNavOpen, setIsNavOpen] = useState(false)
     return (
-        <header className="fixed top-0 left-0 z-40 flex h-20 w-full items-center bg-gradient-to-b from-zinc-900 to-zinc-900/0">
-            <div className="mx-auto flex w-full max-w-screen-2xl items-center justify-between px-4 md:grid md:grid-cols-[1fr_3fr_1fr] md:px-6">
+        <header
+            className={cn(
+                "fixed top-0 left-0 z-40 h-20 w-full",
+                "flex items-center",
+                "bg-gradient-to-b from-zinc-900 to-zinc-900/0",
+            )}
+        >
+            <div
+                className={cn(
+                    "mx-auto w-full max-w-screen-2xl px-4",
+                    "flex items-center justify-between",
+                    "md:grid md:grid-cols-[1fr_3fr_1fr] md:px-6",
+                )}
+            >
                 <h1>
-                    <Link href="/" className="logo">
+                    <Link href="/">
                         <Image
                             src="/logo.svg"
                             alt="Aymen Ghris Logo"
@@ -23,22 +35,27 @@ export const Header = () => {
                         />
                     </Link>
                 </h1>
+
                 <div className="relative md:justify-self-center">
-                    <button
-                        type="button"
-                        className="cc-menu-btn cursor-pointer md:hidden"
-                        onClick={() => setNavOpen(!navOpen)}
+                    <Button
+                        variant="menu"
+                        size="icon-lg"
+                        className="md:hidden"
+                        onClick={() => setIsNavOpen((prev) => !prev)}
                     >
-                        {navOpen ? <TbX /> : <TbMenu2 />}
-                    </button>
-                    <Navbar navOpen={navOpen} />
+                        {isNavOpen ? <TbX /> : <TbMenu2 />}
+                    </Button>
+
+                    <Navbar navOpen={isNavOpen} />
                 </div>
+
                 <Button
-                    href="#contact"
                     variant="primary"
                     className="max-md:hidden md:justify-self-end"
+                    size="md"
+                    asChild
                 >
-                    Contact Me
+                    <Link href="#contact">Contact Me</Link>
                 </Button>
             </div>
         </header>

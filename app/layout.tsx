@@ -3,6 +3,7 @@ import { Inter } from "next/font/google"
 import type { ReactNode } from "react"
 import { GsapLenisProvider } from "@/components/gsap-lenis-provider"
 import "./globals.css"
+import { cn } from "@/lib/utils"
 
 export const metadata: Metadata = {
     title: "Aymen Ghris - Portfolio",
@@ -25,7 +26,12 @@ const RootLayout = ({ children }: RootLayoutProps) => {
     return (
         <html
             lang="en"
-            className={`${inter.className} scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-zinc-500`}
+            className={cn(
+                "scrollbar-thin",
+                "scrollbar-thumb-zinc-800",
+                "scrollbar-track-zinc-500",
+                inter.className,
+            )}
         >
             <body className="h-[200vh] scroll-smooth bg-zinc-900 text-zinc-50">
                 <GsapLenisProvider>{children}</GsapLenisProvider>
