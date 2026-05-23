@@ -36,6 +36,12 @@ const buttonVariants = cva(
                     "cursor-pointer transition-[background-color]",
                     "hover:bg-zinc-700 active:bg-zinc-800",
                 ),
+                outline: cn(
+                    "font-medium text-sm",
+                    "rounded-xl bg-zinc-800",
+                    "cursor-pointer transition-[background-color]",
+                    "hover:bg-zinc-700 active:bg-zinc-800",
+                ),
                 menu: cn(
                     "rounded-xl bg-zinc-50/10 backdrop-blur-2xl",
                     "hover:bg-zinc-50/15 active:scale-95",
