@@ -10,6 +10,7 @@ import { Navbar } from "./navbar"
 
 export const Header = () => {
     const [isNavOpen, setIsNavOpen] = useState(false)
+
     return (
         <header
             className={cn(
@@ -46,7 +47,7 @@ export const Header = () => {
                         {isNavOpen ? <TbX /> : <TbMenu2 />}
                     </Button>
 
-                    <Navbar navOpen={isNavOpen} />
+                    <Navbar isNavOpen={isNavOpen} />
                 </div>
 
                 <Button
