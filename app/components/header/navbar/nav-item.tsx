@@ -1,4 +1,3 @@
-import type { MouseEvent } from "react"
 import type { NavItemLabel } from "@/constants/nav-items"
 import { cn } from "@/lib/utils"
 
@@ -6,7 +5,7 @@ interface NavItemProps {
     label: NavItemLabel
     isActive: boolean
     activeLinkRef: (node: HTMLAnchorElement | null) => void
-    onClick: (event: MouseEvent<HTMLAnchorElement>, label: NavItemLabel) => void
+    onClick: (label: NavItemLabel) => void
 }
 
 export const NavItem = ({
@@ -25,7 +24,7 @@ export const NavItem = ({
                 : "text-zinc-50/50 hover:text-zinc-50",
             label === "contact" && "md:hidden",
         )}
-        onClick={(e) => onClick(e, label)}
+        onClick={() => onClick(label)}
     >
         <span className="first-letter:uppercase">{label}</span>
     </a>
