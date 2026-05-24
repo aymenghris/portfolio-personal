@@ -1,16 +1,16 @@
-import clsx from "clsx"
-import type { ReactElement } from "react"
+import type { ComponentType } from "react"
+import { cn } from "@/lib/utils"
 
 interface SkillCardProps {
-    icon: ReactElement
+    icon: ComponentType<{ size?: number }>
     title: string
     className?: string
 }
 
-export const SkillCard = ({ icon, title, className }: SkillCardProps) => {
+export const SkillCard = ({ icon: Icon, title, className }: SkillCardProps) => {
     return (
         <div
-            className={clsx(
+            className={cn(
                 "flex flex-col items-center",
                 "w-fit",
                 "rounded-2xl ring-2 ring-zinc-50/10 ring-inset",
@@ -24,7 +24,7 @@ export const SkillCard = ({ icon, title, className }: SkillCardProps) => {
                 title={title}
                 className="w-fit rounded-lg bg-zinc-700/50 p-5 opacity-70 transition-all group-hover:opacity-100"
             >
-                {icon}
+                <Icon size={45} />
             </span>
         </div>
     )
