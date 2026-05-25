@@ -1,4 +1,4 @@
-export const ABOUT_ITEMS = [
+export const ABOUT_STATS = [
     {
         label: "Project done",
         number: 6,

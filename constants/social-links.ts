@@ -4,16 +4,16 @@ export const SOCIAL_LINKS = [
     {
         href: "/",
         icon: TbBrandGithub,
-        alt: "GitHub",
+        label: "GitHub",
     },
     {
         href: "/",
         icon: TbBrandLinkedin,
-        alt: "LinkedIn",
+        label: "LinkedIn",
     },
     {
         href: "/",
         icon: TbBrandTwitter,
-        alt: "Twitter X",
+        label: "Twitter X",
     },
 ]
