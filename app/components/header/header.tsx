@@ -1,15 +1,15 @@
 "use client"
 
-import Image from "next/image"
-import Link from "next/link"
 import { useState } from "react"
-import { TbMenu2, TbX } from "react-icons/tb"
-import { Button } from "@/components/ui/button"
+import { PortfolioLogo } from "@/components/portfolio-logo"
 import { cn } from "@/lib/utils"
-import { Navbar } from "./navbar"
+import { HeaderCta } from "./header-cta"
+import { HeaderMenuToggle } from "./header-menu-toggle"
+import { HeaderNav } from "./header-nav"
 
 export const Header = () => {
     const [isNavOpen, setIsNavOpen] = useState(false)
+    const toggleNav = () => setIsNavOpen((prev) => !prev)
 
     return (
         <header
@@ -26,38 +26,14 @@ export const Header = () => {
                     "md:grid md:grid-cols-[1fr_3fr_1fr] md:px-6",
                 )}
             >
-                <h1>
-                    <Link href="/">
-                        <Image
-                            src="/logo.svg"
-                            alt="Aymen Ghris Logo"
-                            width={40}
-                            height={40}
-                        />
-                    </Link>
-                </h1>
+                <PortfolioLogo />
 
                 <div className="relative md:justify-self-center">
-                    <Button
-                        variant="menu"
-                        size="icon-lg"
-                        className="md:hidden"
-                        onClick={() => setIsNavOpen((prev) => !prev)}
-                    >
-                        {isNavOpen ? <TbX /> : <TbMenu2 />}
-                    </Button>
-
-                    <Navbar isNavOpen={isNavOpen} />
+                    <HeaderMenuToggle isOpen={isNavOpen} onToggle={toggleNav} />
+                    <HeaderNav isOpen={isNavOpen} />
                 </div>
 
-                <Button
-                    variant="primary"
-                    className="max-md:hidden md:justify-self-end"
-                    size="md"
-                    asChild
-                >
-                    <Link href="#contact">Contact Me</Link>
-                </Button>
+                <HeaderCta />
             </div>
         </header>
     )
