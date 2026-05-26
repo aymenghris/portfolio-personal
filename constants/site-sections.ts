@@ -1,26 +1,24 @@
-export type SectionLabel = "home" | "about" | "work" | "reviews" | "contact"
+const SECTION_IDS = ["home", "about", "work", "reviews", "contact"] as const
+export type SectionId = (typeof SECTION_IDS)[number]
 
-interface SiteSection {
-    label: SectionLabel
+export interface SiteSection {
+    id: SectionId
+    label: string
     href: string
 }
 
-export const DEFAULT_SECTION: SectionLabel = "home"
+export const DEFAULT_SECTION: SectionId = "home"
 
-export const SITE_SECTIONS = [
-    { label: "home", href: "#home" },
-    { label: "about", href: "#about" },
-    { label: "work", href: "#work" },
-    { label: "reviews", href: "#reviews" },
-    { label: "contact", href: "#contact" },
-] as const satisfies readonly SiteSection[]
+export const SITE_SECTIONS = SECTION_IDS.map((id) => ({
+    id,
+    label: id,
+    href: `#${id}`,
+}))
 
-// FOOTER SITEMAP
-const LABEL_OVERRIDES: Partial<Record<string, string>> = {
+const FOOTER_LABEL_OVERRIDES: Partial<Record<SectionId, string>> = {
     contact: "contact me",
 }
-
-export const FOOTER_SITEMAP = SITE_SECTIONS.map((item) => ({
-    ...item,
-    label: LABEL_OVERRIDES[item.label] ?? item.label,
+export const FOOTER_SITEMAP = SITE_SECTIONS.map((section) => ({
+    ...section,
+    label: FOOTER_LABEL_OVERRIDES[section.id] ?? section.label,
 }))

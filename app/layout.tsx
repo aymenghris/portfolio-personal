@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import type { ReactNode } from "react"
 import { GsapLenisProvider } from "@/components/gsap-lenis-provider"
+import { ActiveSectionProvider } from "@/context/active-section-context"
 import "./globals.css"
 import { cn } from "@/lib/utils"
 
@@ -34,7 +35,9 @@ const RootLayout = ({ children }: RootLayoutProps) => {
             )}
         >
             <body className="h-[200vh] scroll-smooth bg-zinc-900 text-zinc-50">
-                <GsapLenisProvider>{children}</GsapLenisProvider>
+                <ActiveSectionProvider>
+                    <GsapLenisProvider>{children}</GsapLenisProvider>
+                </ActiveSectionProvider>
             </body>
         </html>
     )

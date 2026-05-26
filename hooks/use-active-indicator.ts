@@ -1,8 +1,9 @@
-import { useCallback, useEffect, useRef, useState } from "react"
-import { DEFAULT_SECTION, type SectionLabel } from "@/constants/site-sections"
+import { useCallback, useEffect, useRef } from "react"
+import type { SectionId } from "@/constants/site-sections"
+import { useActiveSection } from "@/context/active-section-context"
 
 export const useActiveIndicator = () => {
-    const [activeLabel, setActiveLabel] = useState(DEFAULT_SECTION)
+    const { activeSection, setActiveSection } = useActiveSection()
     const navRef = useRef<HTMLElement>(null)
     const activeBoxRef = useRef<HTMLDivElement>(null)
     const activeLinkRef = useRef<HTMLAnchorElement | null>(null)
@@ -33,9 +34,9 @@ export const useActiveIndicator = () => {
         return () => observer.disconnect()
     }, [updateBoxPosition])
 
-    const handleLinkClick = useCallback((label: SectionLabel) => {
-        setActiveLabel(label)
-    }, [])
+    const handleLinkClick = useCallback((id: SectionId) => {
+        setActiveSection(id)
+    }, [setActiveSection])
 
     /**
      * HOW THE BOX GETS ITS INITIAL POSITION WITHOUT USER INTERACTION:
@@ -64,7 +65,7 @@ export const useActiveIndicator = () => {
     )
 
     return {
-        activeLabel,
+        activeSection,
         navRef,
         activeBoxRef,
         setActiveLinkRef,
