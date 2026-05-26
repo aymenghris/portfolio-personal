@@ -1,5 +1,5 @@
 import { Headline } from "@/components/headline"
-import { SKILLS_ITEMS } from "@/constants/skills-items"
+import { SKILLS_ITEMS } from "@/constants/skills"
 import { SkillsDescription } from "./skills-description"
 import { SkillsGrid } from "./skills-grid"
 

@@ -14,8 +14,8 @@ export const ContactInfo = () => (
         </p>
 
         <div className="mt-auto flex items-center gap-2">
-            {SOCIAL_LINKS.map(({ href, icon, alt }) => (
-                <SocialLink key={alt} href={href} icon={icon} label={alt} />
+            {SOCIAL_LINKS.map(({ href, icon, label }) => (
+                <SocialLink key={label} href={href} icon={icon} label={label} />
             ))}
         </div>
     </div>
