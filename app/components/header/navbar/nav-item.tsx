@@ -1,15 +1,14 @@
-import type { SectionLabel } from "@/constants/site-sections"
+import type { SectionId, SiteSection } from "@/constants/site-sections"
 import { cn } from "@/lib/utils"
 
-interface NavItemProps {
-    label: SectionLabel
-    href: string
+interface NavItemProps extends SiteSection {
     isActive: boolean
     activeLinkRef: (node: HTMLAnchorElement | null) => void
-    onClick: (label: SectionLabel) => void
+    onClick: (id: SectionId) => void
 }
 
 export const NavItem = ({
+    id,
     label,
     href,
     isActive,
@@ -24,9 +23,9 @@ export const NavItem = ({
             isActive
                 ? "text-zinc-900 transition-all duration-500"
                 : "text-zinc-50/50 hover:text-zinc-50",
-            label === "contact" && "md:hidden",
+            id === "contact" && "md:hidden",
         )}
-        onClick={() => onClick(label)}
+        onClick={() => onClick(id)}
     >
         <span className="first-letter:uppercase">{label}</span>
     </a>

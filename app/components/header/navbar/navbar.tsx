@@ -11,7 +11,7 @@ interface NavbarProps {
 
 export const Navbar = ({ isNavOpen }: NavbarProps) => {
     const {
-        activeLabel,
+        activeSection,
         navRef,
         activeBoxRef,
         setActiveLinkRef,
@@ -32,12 +32,11 @@ export const Navbar = ({ isNavOpen }: NavbarProps) => {
                 isNavOpen && "visible scale-100 opacity-100 blur-none",
             )}
         >
-            {SITE_SECTIONS.map(({ label, href }) => (
+            {SITE_SECTIONS.map((section) => (
                 <NavItem
-                    key={label}
-                    label={label}
-                    href={href}
-                    isActive={label === activeLabel}
+                    key={section.id}
+                    {...section} // Passes id, label, href
+                    isActive={section.id === activeSection}
                     activeLinkRef={setActiveLinkRef}
                     onClick={handleLinkClick}
                 />
