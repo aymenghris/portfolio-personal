@@ -1,21 +1,23 @@
-import type { NavItemLabel } from "@/constants/nav-items"
+import type { SectionLabel } from "@/constants/site-sections"
 import { cn } from "@/lib/utils"
 
 interface NavItemProps {
-    label: NavItemLabel
+    label: SectionLabel
+    href: string
     isActive: boolean
     activeLinkRef: (node: HTMLAnchorElement | null) => void
-    onClick: (label: NavItemLabel) => void
+    onClick: (label: SectionLabel) => void
 }
 
 export const NavItem = ({
     label,
+    href,
     isActive,
     activeLinkRef,
     onClick,
 }: NavItemProps) => (
     <a
-        href={`#${label}`}
+        href={href}
         ref={isActive ? activeLinkRef : null}
         className={cn(
             "flex h-9 items-center px-4 font-medium text-sm leading-tight tracking-wide transition-colors",

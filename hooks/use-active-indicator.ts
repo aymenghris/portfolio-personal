@@ -1,16 +1,8 @@
-import {
-    useCallback,
-    useEffect,
-    useRef,
-    useState,
-} from "react"
-import { NAV_ITEMS, type NavItemLabel } from "@/constants/nav-items"
-
-const getDefaultLabel = () =>
-    NAV_ITEMS.find((item) => item.isDefault)?.label ?? NAV_ITEMS[0]?.label
+import { useCallback, useEffect, useRef, useState } from "react"
+import { DEFAULT_SECTION, type SectionLabel } from "@/constants/site-sections"
 
 export const useActiveIndicator = () => {
-    const [activeLabel, setActiveLabel] = useState(getDefaultLabel)
+    const [activeLabel, setActiveLabel] = useState(DEFAULT_SECTION)
     const navRef = useRef<HTMLElement>(null)
     const activeBoxRef = useRef<HTMLDivElement>(null)
     const activeLinkRef = useRef<HTMLAnchorElement | null>(null)
@@ -41,12 +33,9 @@ export const useActiveIndicator = () => {
         return () => observer.disconnect()
     }, [updateBoxPosition])
 
-    const handleLinkClick = useCallback(
-        (label: NavItemLabel) => {
-            setActiveLabel(label)
-        },
-        [],
-    )
+    const handleLinkClick = useCallback((label: SectionLabel) => {
+        setActiveLabel(label)
+    }, [])
 
     /**
      * HOW THE BOX GETS ITS INITIAL POSITION WITHOUT USER INTERACTION:

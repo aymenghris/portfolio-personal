@@ -1,6 +1,6 @@
 "use client"
 
-import { NAV_ITEMS } from "@/constants/nav-items"
+import { SITE_SECTIONS } from "@/constants/site-sections"
 import { useActiveIndicator } from "@/hooks/use-active-indicator"
 import { cn } from "@/lib/utils"
 import { NavItem } from "./nav-item"
@@ -32,10 +32,11 @@ export const Navbar = ({ isNavOpen }: NavbarProps) => {
                 isNavOpen && "visible scale-100 opacity-100 blur-none",
             )}
         >
-            {NAV_ITEMS.map(({ label }) => (
+            {SITE_SECTIONS.map(({ label, href }) => (
                 <NavItem
                     key={label}
                     label={label}
+                    href={href}
                     isActive={label === activeLabel}
                     activeLinkRef={setActiveLinkRef}
                     onClick={handleLinkClick}
