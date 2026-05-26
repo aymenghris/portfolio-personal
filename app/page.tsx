@@ -5,6 +5,7 @@ import {
     Header,
     Hero,
     Reviews,
+    ScrollSpy,
     Skills,
     Work,
 } from "@/app/components/"
@@ -20,6 +21,7 @@ const Home = () => {
             <Reviews />
             <Contact />
             <Footer />
+            <ScrollSpy />
         </>
     )
 }
