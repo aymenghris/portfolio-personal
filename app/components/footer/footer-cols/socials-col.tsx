@@ -1,15 +1,15 @@
 interface FooterListProps {
-    listName: string
-    listItems: { label: string; href: string }[]
+    links: { label: string; href: string }[]
 }
 
-export const FooterList = ({ listName, listItems }: FooterListProps) => {
+export const SocialsCol = ({ links }: FooterListProps) => {
     return (
         <div>
-            <p className="cc-reveal-up mb-2">{listName}</p>
+            <p className="cc-reveal-up mb-2">Socials</p>
+
             <ul>
-                {listItems.map(({ label, href }) => (
-                    <li key={crypto.randomUUID()}>
+                {links.map(({ label, href }) => (
+                    <li key={label}>
                         <a
                             href={href}
                             className="cc-reveal-up block py-1 text-zinc-400 transition-colors hover:text-zinc-200"
