@@ -1,4 +1,4 @@
-import { ABOUT_ITEMS } from "@/constants/about-items"
+import { ABOUT_STATS } from "@/constants/about-stats"
 import { AboutDescription } from "./about-description"
 import { AboutLogo } from "./about-logo"
 import { AboutStats } from "./about-stats"
@@ -11,7 +11,7 @@ export const About = () => {
                     <AboutDescription />
 
                     <div className="flex flex-wrap items-center gap-4 md:gap-7">
-                        <AboutStats items={ABOUT_ITEMS} />
+                        <AboutStats stats={ABOUT_STATS} />
                         <AboutLogo />
                     </div>
                 </div>
