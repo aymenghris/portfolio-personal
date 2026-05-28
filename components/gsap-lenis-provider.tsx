@@ -2,7 +2,7 @@
 
 import { ReactLenis } from "lenis/react"
 import type { FC, ReactNode } from "react"
-import { ScrollHandler } from "@/hooks/UseScrollHandler"
+import { useScrollHandler } from "@/hooks/use-scroll-handler"
 import "lenis/dist/lenis.css"
 import { useGSAP } from "@gsap/react"
 import { gsap } from "gsap"
@@ -15,7 +15,7 @@ interface LenisProviderProps {
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 export const GsapLenisProvider: FC<LenisProviderProps> = ({ children }) => {
-    ScrollHandler()
+    useScrollHandler()
     useGSAP(() => {
         const elements = gsap.utils.toArray<HTMLElement>(".cc-reveal-up")
         elements.forEach((element) => {
