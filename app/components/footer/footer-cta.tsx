@@ -8,7 +8,7 @@ export const FooterCTA = () => (
         <Headline className="cc-reveal-up">Get in Touch</Headline>
 
         <Button variant="primary" className="cc-reveal-up" asChild>
-            <Link href="mailto:aymen.quantum@gmail.com">
+            <Link href="mailto:aymenghris@outlook.com">
                 Send Message
                 <TbChevronRight className="ml-2" />
             </Link>
