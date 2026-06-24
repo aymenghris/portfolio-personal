@@ -1,20 +1,18 @@
 import { cn } from "@/lib/utils"
+import type { ProjectItem } from "@/types/project"
 import { ProjectCardFooter } from "./project-card-footer"
 import { ProjectCardImage } from "./project-card-image"
 
-interface ProjectCardProps {
-    imgSrc: string
-    title: string
-    tags: string[]
-    projectLink: string
+interface ProjectCardProps extends ProjectItem {
     className?: string
 }
 
 export const ProjectCard = ({
-    imgSrc,
+    screenshot,
     title,
     tags,
-    projectLink,
+    liveLink,
+    repoLink,
     className,
 }: ProjectCardProps) => {
     return (
@@ -26,11 +24,13 @@ export const ProjectCard = ({
                 className,
             )}
         >
-            <ProjectCardImage src={imgSrc} alt={title} />
+            <ProjectCardImage src={screenshot} alt={title} />
+
             <ProjectCardFooter
                 title={title}
                 tags={tags}
-                projectLink={projectLink}
+                liveLink={liveLink}
+                repoLink={repoLink}
             />
         </article>
     )

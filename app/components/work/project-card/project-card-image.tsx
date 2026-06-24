@@ -7,14 +7,14 @@ interface ProjectCardImageProps {
 
 export const ProjectCardImage = ({ src, alt }: ProjectCardImageProps) => {
     return (
-        <div className="mb-4 aspect-square overflow-hidden rounded-lg bg-zinc-700">
+        <div className="mb-4 overflow-hidden rounded-lg bg-zinc-700">
             <Image
                 src={src}
                 alt={alt}
-                width={560}
-                height={560}
+                width={505}
+                height={375}
                 loading="lazy"
-                className="size-full object-cover"
+                className="object-cover"
             />
         </div>
     )

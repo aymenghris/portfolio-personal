@@ -6,6 +6,19 @@
 
 @plugin "tailwind-scrollbar";
 
+@theme {
+    --animate-infinite-scroll: infinite-scroll 25s linear infinite;
+
+    @keyframes infinite-scroll {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-50%);
+        }
+    }
+}
+
 .container {
     @apply px-4 mx-auto lg:px-8 xl:max-w-6xl;
 }
