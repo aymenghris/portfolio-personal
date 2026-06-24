@@ -1,19 +1,14 @@
-import { TbBrandGithub, TbBrandLinkedin, TbBrandTwitter } from "react-icons/tb"
+import { TbBrandGithub, TbBrandLinkedin } from "react-icons/tb"
 
 export const SOCIAL_LINKS = [
     {
-        href: "/",
+        href: "https://github.com/aymenghris",
         icon: TbBrandGithub,
         label: "GitHub",
     },
     {
-        href: "/",
+        href: "https://www.linkedin.com/in/aymenghris/",
         icon: TbBrandLinkedin,
         label: "LinkedIn",
-    },
-    {
-        href: "/",
-        icon: TbBrandTwitter,
-        label: "Twitter X",
     },
 ]
