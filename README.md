@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Portfolio
 
-## Getting Started
+A clean, modern, and highly interactive personal portfolio website designed to showcase my projects, skills, and experience as a software developer.
 
-First, run the development server:
+🔗 **Live Demo:** [https://aymenghris.vercel.app](https://aymenghris.vercel.app)  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 📸 Preview
+![Project Preview](./assets/preview.gif)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features
+- **Smooth Scrolling & Navigation:** Powered by Lenis for buttery-smooth inertial scrolling, coupled with active section tracking using a custom ScrollSpy component.
+- **Dynamic Reveal Animations:** Utilizes GSAP and ScrollTrigger to create fluid, scroll-driven entry animations for text and card elements.
+- **Curated Project Gallery:** Showcases major full-stack and front-end applications, complete with interactive tags, repository links, and live demos.
+- **Fully Functional Contact Form:** Direct integration with Getform.io for secure and seamless contact queries without custom backend code.
+- **Modern & Responsive Design:** Sleek dark-mode aesthetic built with Tailwind CSS, custom scrollbars, and full responsiveness across all devices.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠 Tech Stack
+- **Frontend:** `Next.js` `React 19` `TypeScript` `Tailwind CSS` `GSAP` `Lenis`
+- **Backend/Services:** `Getform.io`
+- **Deployment:** `Vercel`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 💡 What I Learned
+- Integrating Lenis smooth scrolling with custom React hooks to manage page jumps and anchor links seamlessly.
+- Orchestrating performant scroll-based reveal animations using GSAP's `ScrollTrigger` and the official `@gsap/react` package.
+- Setting up lightweight, serverless contact form submissions using Getform.io, eliminating the need to maintain a custom email server.
+- Structuring modular Next.js application layouts utilizing component-driven architecture for scalability and reusability.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 👤 Contact
+[LinkedIn](https://linkedin.com/in/aymenghris) • [Email](mailto:aymenghris@outlook.com) • [GitHub](https://github.com/aymenghris)
